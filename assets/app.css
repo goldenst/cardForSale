@@ -1,0 +1,24 @@
+#carYear, #carExp, #salePrice {
+  width: 80px;
+}
+
+#carMake, #carModel {
+  width: 200px;
+}
+
+#carVin {
+  width: 250px;
+}
+
+#carPlate {
+  width: 120px;
+}
+
+.form-area {
+  padding: 50px;
+}
+
+.col {
+  padding: 5px;
+  margin: 0x;
+}
