@@ -20,16 +20,27 @@ $( document ).ready(function() {
 
     $('#add-car-btn').on('click', function (event) {
       event.preventDefault;
+
+      function show_keys() {
+        var selector = document.getElementById('#hasKeys');
+        var value = selector[selector.selectedIndex].value;
+    }
+
+    function show_wrecked() {
+      var selector = document.getElementById('#isWrecked');
+      var value = selector[selector.selectedIndex].value;
+  }
       // sets user input to varriable
       var carYear = $("#carYear").val().trim();
-      var carMake = $("#carMake").val().trim();
-      var carModel = $("#carModel").val().trim();
-      var carVin = $("#carVin").val().trim();
-      var carPlate = $("#carPlate").val().trim();
-      var carExp = $("#carExp").val().trim();
+      var carMake = $("#carMake").val().toUpperCase().trim();
+      var carModel = $("#carModel").val().toUpperCase().trim();
+      var carVin = $("#carVin").val().toUpperCase().trim();
+      var carPlate = $("#carPlate").val().toUpperCase().trim();
+      var carExp = $("#carExp").val().toUpperCase().trim();
       var salePrice = $("#salePrice").val().trim();
-      var hasKeys = $("#hasKeys").val().trim();
-      var isWrecked = $("#isWrecked").val().trim();
+      var hasKeys = $("#hasKeys").val().toUpperCase();
+      var isWrecked = $("#isWrecked").val().toUpperCase();
+      var lots = $("#lots").val();
 
           // pushes data to database
       database.ref().push({
@@ -41,10 +52,11 @@ $( document ).ready(function() {
       expires: carExp,
       price: salePrice,
       keys: hasKeys,
-      wrecked: isWrecked
+      wrecked: isWrecked,
+      lot: lots
       });
     console.log('Intervel : - ' + intervael);
-    //console.log(); 
+    console.log(lot); 
   });
     
   database.ref().on(
@@ -52,12 +64,11 @@ $( document ).ready(function() {
     function (db) {
       var dbObj = db.val();
  
-      var carYear = dbObj.year;
-      var carMake = dbObj.make;
+    
 
-
-// console.log("Year: =" , carYear);
-// console.log('Make: =' , carMake)
+  //console.log("Year: =" , carYear);
+  //console.log('Make: =' , carMake)
+  //console.log('Lot: =' , lot)
 
 
 
@@ -69,13 +80,14 @@ newRow.append($("<td>" + dbObj.model + "</td>"));
 newRow.append($("<td>" + dbObj.vin + "</td>"));
 newRow.append($('<td>' + dbObj.plate + "</td>"));
 newRow.append($('<td>' + dbObj.expires+ "</td>"));
-newRow.append($('<td>$ ' + dbObj.price+ ".00</td>"));
+newRow.append($('<td>$' + dbObj.price+ "</td>"));
 newRow.append($('<td>' + dbObj.keys+ "</td>"));
 newRow.append($('<td>' + dbObj.wrecked+ "</td>"));
+newRow.append($('<td>' + dbObj.lot+ "</td>"));
 
 $('tbody').append(newRow);
 
-// console.log('year2: ' , carYear)
+ console.log('year2: ' , dbObj.lot)
 
 },
 function (error) {
@@ -94,6 +106,11 @@ database
 .limitToLast(3)
 .on('child_added', function (ss) {
  // console.log(ss.val());
+});
+
+$('#print-button').on('click', function() {  
+  window.print();  
+  return false; // why false?
 });
 
 });

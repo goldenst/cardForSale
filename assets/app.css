@@ -10,7 +10,7 @@
   width: 250px;
 }
 
-#carPlate {
+#carPlate, #lot {
   width: 120px;
 }
 
@@ -21,4 +21,19 @@
 .col {
   padding: 5px;
   margin: 0x;
+}
+
+thead {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+tbody {
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  padding: 20px;
 }

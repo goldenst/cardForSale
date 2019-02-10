@@ -13,7 +13,7 @@
   <!-- ####### firebase  ######## -->
   <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
 
-  <script src="assets/app.js"></script>
+  <!-- <script src="assets/app.js"></script> -->
 
   <!-- ####### bootstrap css ######## -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
@@ -21,20 +21,48 @@
 
   <link rel="stylesheet" href="assets/app.css">
 
+  <title>Cars For Sale List</title>
 </head>
+
 <body>
+    <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Enter Cars</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="cars-4-sale.html">For Sale list</a>
+        </li>
+      </ul>
+      <div class="title">
+          <h2>Car for Sale</h2>
+        </div>
         <div class="container">
           <div class="table">
-            <table>
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <td>Year</td>
+                  <td>Make</td>
+                  <td>Model</td>
+                  <td>Vin #</td>
+                  <td>Plate</td>
+                  <td>Expires</td>
+                  <td>Price</td>
+                  <td>Keys</td>
+                  <td>Wrecked</td>
+                  <td>Control #</td>
+                </tr>
+              </thead>
               <tbody>
 
               </tbody>
             </table>
+           
           </div>
         </div>
 </body>
 
-
+<script src="assets/app.js"></script>
 
   <!-- ######## bootstrap js ####### -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
